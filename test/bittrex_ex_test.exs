@@ -2,7 +2,7 @@ defmodule BittrexExTest do
   use ExUnit.Case
   doctest BittrexEx
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "get market summaries" do
+    assert [%{"last" => 0} | _ ] = BittrexEx.get_market_summaries
   end
 end
