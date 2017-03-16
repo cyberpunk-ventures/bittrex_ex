@@ -10,4 +10,14 @@ defmodule BittrexEx do
     end
   end
 
+  def get_last(market_summaries, first, last) do
+     market_summaries
+     |> Enum.find(fn el -> el["MarketName"] === format_pair(first, last) end )
+     |> Map.get("Last")
+  end
+
+  def format_pair(first, last) do
+    import String, only: [upcase: 1]
+    upcase(first) <> "-" <> upcase(last)
+  end
 end
