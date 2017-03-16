@@ -3,10 +3,12 @@ defmodule BittrexExTest do
   doctest BittrexEx
 
   test "get market summaries" do
-    assert [%{"Last" => _} | _ ] = BittrexEx.get_market_summaries
+    assert {:ok, [%{"Last" => _} | _ ]} = BittrexEx.get_market_summaries
   end
 
   test "get last ticker value for btc and eth" do
-    assert is_float(BittrexEx.get_market_summaries |> BittrexEx.get_last("btc", "eth"))
+    {:ok, market_summaries} = BittrexEx.get_market_summaries
+    last_price = BittrexEx.get_last(market_summaries, "btc", "eth")
+    assert is_float(last_price)
   end
 end

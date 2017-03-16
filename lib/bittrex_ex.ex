@@ -5,7 +5,7 @@ defmodule BittrexEx do
       with {:ok, response} <- get("https://bittrex.com/api/v1.1/public/getmarketsummaries")
       do
         body = Poison.Parser.parse!(response.body)
-        body["result"]
+        {:ok, body["result"]}
       else {:error, reason} -> {:error, reason}
     end
   end
