@@ -1,4 +1,4 @@
-defmodule BittrexEx do
+defmodule Bittrex do
   use HTTPoison.Base
 
   def get_market_summaries do

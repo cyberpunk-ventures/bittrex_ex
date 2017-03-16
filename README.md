@@ -1,4 +1,4 @@
-# BittrexEx
+# Bittrex
 
 **TODO: Add description**
 

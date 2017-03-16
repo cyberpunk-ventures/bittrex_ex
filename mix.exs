@@ -1,4 +1,4 @@
-defmodule BittrexEx.Mixfile do
+defmodule Bittrex.Mixfile do
   use Mix.Project
 
   def project do
